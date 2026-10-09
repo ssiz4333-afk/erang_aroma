@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="수서센터에서 40분 동안 내 고민에 맞는 오일을 맡아보고 나만의 롤온을 만들어 가는 무료 1:1 아로마 체험">
+<meta property="og:title" content="수서 아로마 체험">
+<meta property="og:description" content="40분 무료 1:1 아로마 체험 · 나만의 롤온 10ml 증정">
+<meta property="og:type" content="website">
+<title>수서 아로마 체험</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+
+/* Layout: 모바일 퍼스트 단일 컬럼(인스타 인앱 브라우저). 고민 헤드라인 → 센터 사진 → 추천 대상 → 40분 타임라인 → 클래스 → 코치 → 약속 → 신청 → 오시는 길 → FAQ. 하단 고정 CTA */
+:root{
+  --bg:#f3f5f1;
+  --surface:#ffffff;
+  --ink:#1f2b24;
+  --muted:#5b695f;
+  --line:#d8dfd6;
+  --amber:#b0601a;
+  --amber-soft:#f6e7d6;
+  --cedar:#2f4a3a;
+  --on-cedar:#f3f5f1;
+  --logo-bg:#ffffff;
+  --on-photo:#ffffff;
+  --amber-on-photo:#f2b877;
+  --scrim-0:rgba(12,18,14,.05);
+  --scrim-1:rgba(12,18,14,.35);
+  --scrim-2:rgba(12,18,14,.88);
+  --f-display:"Hahmlet","Nanum Myeongjo",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a16;--surface:#1c241f;--ink:#e6ebe5;--muted:#a0ada4;--line:#2e3a33;
+  --amber:#e39c52;--amber-soft:#3a2a1a;--cedar:#24392c;--on-cedar:#eef2ec;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a16;--surface:#1c241f;--ink:#e6ebe5;--muted:#a0ada4;--line:#2e3a33;
+  --amber:#e39c52;--amber-soft:#3a2a1a;--cedar:#24392c;--on-cedar:#eef2ec;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;padding:0 16px;padding-block:0 112px}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:60px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.015em}
+h1{font-size:clamp(1.95rem,8vw,2.6rem);line-height:1.28;font-weight:700}
+h2{font-size:1.5rem;line-height:1.35;font-weight:600}
+h3{font-size:1.1rem;font-weight:600}
+p{margin:0}
+img{display:block;max-width:100%}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.muted{color:var(--muted)}
+.section{display:flex;flex-direction:column;gap:18px}
+.section-head{display:flex;flex-direction:column;gap:8px}
+
+.btn{appearance:none;border:0;font:inherit;font-weight:600;font-size:1.02rem;border-radius:12px;padding:15px 18px;cursor:pointer;text-align:center;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:8px;width:100%}
+.btn:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.btn-amber{background:var(--amber);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-amber{color:#1a1208}}
+:root[data-theme="dark"] .btn-amber{color:#1a1208}
+
+/* Hero: 센터 사진을 배경으로, 하단 어두운 그라데이션 위에 텍스트 */
+.hero{margin-inline:-16px;min-height:min(620px,calc(100svh - 40px));padding:120px 20px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;color:var(--on-photo);
+  background:linear-gradient(180deg,var(--scrim-0) 0%,var(--scrim-1) 45%,var(--scrim-2) 100%),url("img/center.jpg") center 40%/cover no-repeat var(--cedar)}
+@media (min-width:600px){.hero{margin-inline:0;margin-top:16px;border-radius:20px;padding-inline:28px}}
+.hero .eyebrow{color:var(--amber-on-photo)}
+.hero h1{color:var(--on-photo);text-shadow:0 1px 18px rgba(0,0,0,.35)}
+.hero .lead{font-size:1.04rem;color:var(--on-photo);opacity:.9}
+.hero .where{font-size:.8rem;opacity:.75}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.28);border-radius:12px;background:rgba(15,22,18,.42);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow:hidden}
+.facts div{padding:11px 4px;text-align:center;display:flex;flex-direction:column;gap:2px;border-left:1px solid rgba(255,255,255,.2);min-width:0}
+.facts div:first-child{border-left:0}
+.facts b{font-family:var(--f-display);font-size:1.1rem;font-weight:700}
+.facts span{font-size:.74rem;opacity:.8}
+.hero .btn-amber{color:#fff}
+
+/* For you */
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.checks li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+.checks svg{width:22px;height:22px;margin-top:2px}
+
+/* Timeline */
+.bar{display:grid;grid-template-columns:5fr 15fr 10fr 10fr;gap:3px;height:12px;border-radius:999px;overflow:hidden}
+.bar i:nth-child(1){background:color-mix(in srgb,var(--amber) 35%,var(--bg))}
+.bar i:nth-child(2){background:color-mix(in srgb,var(--amber) 60%,var(--bg))}
+.bar i:nth-child(3){background:color-mix(in srgb,var(--amber) 80%,var(--bg))}
+.bar i:nth-child(4){background:var(--amber)}
+.scale{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:-10px}
+.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:58px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.steps .t{font-family:var(--f-mono);color:var(--amber);font-size:.86rem;padding-top:3px;font-variant-numeric:tabular-nums}
+.steps b{display:block;font-weight:600;margin-bottom:2px}
+.steps .d{color:var(--muted);font-size:.94rem}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.pair figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pair img{width:100%;height:auto;border-radius:12px}
+.pair figcaption{font-size:.8rem;color:var(--muted)}
+.take{background:var(--amber-soft);border-radius:12px;padding:18px;display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center}
+.take svg{width:52px;height:72px}
+.take b{display:block;font-family:var(--f-display);font-size:1.08rem;margin-bottom:2px}
+.take p{font-size:.92rem;color:var(--muted)}
+
+/* Class */
+.class-card{display:flex;flex-direction:column;gap:16px}
+.class-card img{width:100%;height:auto;border-radius:14px}
+.class-card .txt{display:flex;flex-direction:column;gap:8px;min-width:0}
+.class-card .txt p{font-size:.94rem;color:var(--muted)}
+
+/* Coach */
+.coach{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center}
+.coach img{width:120px;height:144px;object-fit:cover;object-position:top;border-radius:12px}
+.coach .who{display:flex;flex-direction:column;gap:6px;min-width:0}
+.coach .name{font-family:var(--f-display);font-size:1.2rem;font-weight:700}
+.coach .role{font-family:var(--f-mono);font-size:.74rem;color:var(--amber);letter-spacing:.06em}
+.coach p{font-size:.94rem;color:var(--muted)}
+
+/* Promise */
+.promise{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.promise ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.promise li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.promise li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber);margin:9px 0 0 6px}
+.brand{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap}
+.brand .logo{background:var(--logo-bg);border-radius:8px;padding:6px 10px}
+.brand .logo img{height:30px;width:auto}
+.brand span{font-size:.86rem;color:var(--muted);min-width:0;flex:1}
+
+/* Form */
+.form-card{background:var(--cedar);color:var(--on-cedar);border-radius:18px;padding:26px 20px;display:flex;flex-direction:column;gap:22px}
+.form-card h2{color:var(--on-cedar)}
+.form-card .sub{opacity:.86;font-size:.95rem}
+.fields{display:flex;flex-direction:column;gap:22px}
+.field{display:flex;flex-direction:column;gap:9px;border:0;margin:0;padding:0;min-width:0}
+.field>label,.field>legend{font-weight:600;font-size:.92rem;padding:0}
+.opt-label{font-weight:400;opacity:.75;font-size:.85rem}
+input[type=text],input[type=tel]{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:9px;border:1px solid transparent;background:var(--surface);color:var(--ink)}
+input[type=text]:focus-visible,input[type=tel]:focus-visible{outline:3px solid var(--amber);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:inline-block;padding:9px 15px;border-radius:999px;border:1px solid color-mix(in srgb,var(--on-cedar) 42%,transparent);font-size:.92rem;user-select:none}
+.chip input:checked+span{background:var(--amber);border-color:var(--amber);color:#fff}
+.chip input:focus-visible+span{outline:3px solid var(--amber-soft);outline-offset:2px}
+.err{color:#ffd9b0;font-size:.9rem;font-weight:600}
+.reply{font-size:.86rem;opacity:.8;text-align:center}
+
+.result{background:var(--surface);color:var(--ink);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.result .stepline{font-family:var(--f-mono);font-size:.74rem;color:var(--amber);letter-spacing:.05em}
+.result textarea{width:100%;min-height:140px;font:inherit;font-size:15px;line-height:1.6;border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--bg);color:var(--ink);resize:vertical}
+.result .row{display:flex;flex-direction:column;gap:10px}
+.btn-kakao{background:#fee500;color:#191600}
+.btn-line{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.result .note{font-size:.84rem;color:var(--muted)}
+
+/* Place */
+.place{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.place .name{font-family:var(--f-display);font-size:1.15rem;font-weight:600}
+.place .actions{display:flex;gap:8px;flex-wrap:wrap}
+.mini{font:inherit;font-size:.85rem;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;text-decoration:none}
+.mini:focus-visible{outline:2px solid var(--amber)}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:15px 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);color:var(--amber)}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--muted);margin-top:8px;font-size:.95rem}
+
+footer{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:.84rem;color:var(--muted);text-align:center}
+footer .logo{background:var(--logo-bg);border-radius:10px;padding:8px}
+footer .logo img{height:56px;width:auto}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5}
+.sticky a{max-width:560px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">1:1 Aroma trial · 수서</span>
+    <h1>잠, 긴장, 피로.<br>내 고민에 맞는 향을 40분 만에 찾아요</h1>
+    <p class="lead">고민을 듣고, 오일을 직접 맡아보고, 나만의 롤온 한 병을 만들어 가는 체험이에요. 수서역 근처 센터에서 진행해요.</p>
+    <div class="facts" aria-label="체험 요약">
+      <div><b>무료</b><span>체험비</span></div>
+      <div><b>40분</b><span>소요 시간</span></div>
+      <div><b>1~2인</b><span>지인과 함께</span></div>
+      <div><b>10ml</b><span>롤온 증정</span></div>
+    </div>
+    <a href="#apply" class="btn btn-amber">40분 체험 신청하기</a>
+    <span class="where" role="img" aria-label="배경 사진: 창밖으로 숲이 보이는 수서센터 클래스룸">배경 사진 · 체험이 진행되는 수서센터</span>
+  </header>
+
+  <section class="section" aria-labelledby="t-for">
+    <div class="section-head">
+      <span class="eyebrow">이런 분께 추천</span>
+      <h2 id="t-for">하나라도 해당되면 와보세요</h2>
+    </div>
+    <ul class="checks">
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--amber-soft)"/><path d="M7 12.5l3.2 3L17 9" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>누우면 생각이 많아져서 잠들기까지 오래 걸려요</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--amber-soft)"/><path d="M7 12.5l3.2 3L17 9" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>하루 종일 어깨에 힘이 들어가 있고 잘 안 풀려요</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--amber-soft)"/><path d="M7 12.5l3.2 3L17 9" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>오일이 궁금한데 뭐부터 써야 할지 모르겠어요</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="var(--amber-soft)"/><path d="M7 12.5l3.2 3L17 9" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>집에 오일은 있는데 제대로 못 쓰고 있어요</span></li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="t-steps">
+    <div class="section-head">
+      <span class="eyebrow">40분 진행 순서</span>
+      <h2 id="t-steps">오시면 이렇게 진행돼요</h2>
+    </div>
+    <div class="bar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="scale" aria-hidden="true"><span>0분</span><span>20분</span><span>40분</span></div>
+    <ol class="steps">
+      <li><span class="t">5분</span><div><b>고민 체크</b><span class="d">체크카드로 요즘 잠, 긴장, 컨디션 상태를 간단히 짚어봐요.</span></div></li>
+      <li><span class="t">15분</span><div><b>오일 6종 시향</b><span class="d">고민에 맞춰 고른 오일 6가지를 시향지로 하나씩 맡아보고, 끌리는 향을 골라요.</span></div></li>
+      <li><span class="t">10분</span><div><b>핸드 아로마 터치</b><span class="d">고른 향으로 손과 손목을 가볍게 마사지해 드려요. 직접 바르는 법도 함께 알려드려요.</span></div></li>
+      <li><span class="t">10분</span><div><b>내 롤온 만들기</b><span class="d">고른 오일을 캐리어 오일에 희석해서 10ml 롤온 한 병을 직접 만들어요.</span></div></li>
+    </ol>
+    <div class="pair">
+      <figure>
+        <img src="img/citrus.jpg" alt="도테라 그레이프프루트, 와일드 오렌지, 레몬, 라임 오일과 과일 단면" width="736" height="1186" loading="lazy">
+        <figcaption>시향에 쓰는 도테라 오일</figcaption>
+      </figure>
+      <figure>
+        <img src="img/roller.jpg" alt="손에 든 갈색 유리 롤온 병" width="900" height="1350" loading="lazy">
+        <figcaption>직접 만들어 가는 10ml 롤온</figcaption>
+      </figure>
+    </div>
+    <div class="take">
+      <svg viewBox="0 0 52 72" aria-hidden="true">
+        <rect x="18" y="2" width="16" height="16" rx="3" fill="var(--ink)"/>
+        <rect x="14" y="18" width="24" height="50" rx="7" fill="var(--amber)"/>
+        <rect x="18" y="32" width="16" height="20" rx="2" fill="var(--surface)"/>
+        <circle cx="26" cy="68" r="0" fill="none"/>
+      </svg>
+      <div>
+        <b>가져가는 것</b>
+        <p>나만의 롤온 10ml 1병, 집에서 쓰는 시간대별 사용법 카드</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-class">
+    <div class="section-head">
+      <span class="eyebrow">함께 듣고 싶다면</span>
+      <h2 id="t-class">금요일 그룹 클래스도 있어요</h2>
+    </div>
+    <div class="class-card">
+      <img src="img/class.jpg" alt="센터에서 진행된 라벤더 오일 클래스 현장" width="960" height="1212" loading="lazy">
+      <div class="txt">
+        <h3>Healing Friday</h3>
+        <p>매주 금요일 센터에서 열리는 아로마테라피 클래스예요. 오일 하나를 주제로 쓰는 법을 배우고 같이 체험해요.</p>
+        <p>1:1이 부담스러우면 클래스로 먼저 오셔도 좋아요.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-coach">
+    <div class="section-head">
+      <span class="eyebrow">체험을 진행하는 사람</span>
+      <h2 id="t-coach" class="sr-heading">안녕하세요, 이랑코치예요</h2>
+    </div>
+    <div class="coach">
+      <img src="img/coach.jpg" alt="이랑코치 정종범" width="700" height="840" loading="lazy">
+      <div class="who">
+        <span class="name">정종범</span>
+        <span class="role">이랑코치 · 웰니스 리더</span>
+        <p>수서 도테라트리플센터에서 아로마로 생활 루틴을 코칭하고, 웰니스 강의를 하고 있어요. 처음 오시는 분 기준으로 천천히 설명드려요.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise" aria-labelledby="t-promise">
+    <h2 id="t-promise">미리 약속드려요</h2>
+    <ul>
+      <li><span>체험만 하고 가셔도 됩니다. 구매나 가입 권유 없어요.</span></li>
+      <li><span>마음에 드는 오일이 있을 때만, 물어보시면 안내해 드려요.</span></li>
+      <li><span>신청하시면 하루 안에 카카오톡으로 답장드려요.</span></li>
+    </ul>
+    <div class="brand">
+      <span class="logo"><img src="img/doterra.png" alt="doTERRA" width="360" height="183"></span>
+      <span>체험에 쓰는 오일은 모두 도테라 제품이에요. 이랑코치는 도테라 웰니스 리더로 활동하고 있어요.</span>
+    </div>
+  </section>
+
+  <section id="apply" class="form-card" aria-labelledby="t-form">
+    <div>
+      <h2 id="t-form">체험 신청</h2>
+      <p class="sub">네 가지만 적어주시면 신청 메시지가 만들어져요. 카카오톡으로 보내주시면 일정 잡아드릴게요.</p>
+    </div>
+
+    <form id="f" novalidate>
+      <div class="fields">
+        <div class="field">
+          <label for="name">이름 또는 닉네임</label>
+          <input type="text" id="name" autocomplete="name" placeholder="예: 김OO">
+        </div>
+
+        <div class="field">
+          <label for="phone">전화번호</label>
+          <input type="tel" id="phone" autocomplete="tel" inputmode="numeric" placeholder="010-0000-0000" maxlength="13">
+        </div>
+
+        <fieldset class="field">
+          <legend>가장 신경 쓰이는 것</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="concern" id="c1" value="잠·휴식" checked><span>잠·휴식</span></label>
+            <label class="chip"><input type="radio" name="concern" id="c2" value="긴장·스트레스"><span>긴장·스트레스</span></label>
+            <label class="chip"><input type="radio" name="concern" id="c3" value="피로·컨디션"><span>피로·컨디션</span></label>
+            <label class="chip"><input type="radio" name="concern" id="c4" value="피부·두피"><span>피부·두피</span></label>
+            <label class="chip"><input type="radio" name="concern" id="c5" value="그냥 궁금해요"><span>그냥 궁금해요</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>희망 일정 <span class="opt-label">(여러 개 선택)</span></legend>
+          <div class="chips" id="days">
+            <label class="chip"><input type="checkbox" id="d1" value="평일 오전"><span>평일 오전</span></label>
+            <label class="chip"><input type="checkbox" id="d2" value="평일 오후"><span>평일 오후</span></label>
+            <label class="chip"><input type="checkbox" id="d3" value="평일 저녁"><span>평일 저녁</span></label>
+            <label class="chip"><input type="checkbox" id="d4" value="토요일"><span>토요일</span></label>
+            <label class="chip"><input type="checkbox" id="d5" value="금요일 그룹 클래스"><span>금요일 그룹 클래스</span></label>
+          </div>
+        </fieldset>
+
+        <p class="err" id="err" hidden></p>
+        <button type="submit" class="btn btn-amber" id="make">신청 메시지 만들기</button>
+        <p class="reply">하루 안에 카카오톡으로 답장드려요</p>
+      </div>
+    </form>
+
+    <div class="result" id="result" hidden>
+      <span class="stepline">① 메시지 복사 → ② 카톡에 붙여넣기</span>
+      <textarea id="msg" readonly aria-label="신청 메시지"></textarea>
+      <div class="row">
+        <button type="button" class="btn btn-amber" id="copy">메시지 복사하기</button>
+        <a class="btn btn-kakao" href="https://open.kakao.com/o/sMwuYIVg" target="_blank" rel="noopener">카카오톡으로 보내기</a>
+        <a class="btn btn-line" href="https://instagram.com/erang_coach" target="_blank" rel="noopener">인스타 DM으로 보내기</a>
+      </div>
+      <p class="note">복사가 안 되면 위 메시지를 길게 눌러 전체 선택 후 복사해 주세요.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-place">
+    <div class="section-head">
+      <span class="eyebrow">오시는 길</span>
+      <h2 id="t-place">수서역 근처예요</h2>
+    </div>
+    <div class="place">
+      <span class="name">도테라트리플센터</span>
+      <span>서울시 강남구 수서동 713번지<br>수서현대벤처빌 722호</span>
+      <div class="actions">
+        <button type="button" class="mini" id="copyAddr">주소 복사</button>
+        <a class="mini" href="https://map.naver.com/p/search/%EC%88%98%EC%84%9C%ED%98%84%EB%8C%80%EB%B2%A4%EC%B2%98%EB%B9%8C" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+      </div>
+      <p class="muted" style="font-size:.9rem">정확한 방문 시간은 신청 후 카톡으로 확정해 드려요.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="t-faq">
+    <h2 id="t-faq">자주 묻는 질문</h2>
+    <div class="faq">
+      <details><summary>정말 무료예요?</summary><p>네. 체험비는 없고, 만든 롤온도 그대로 가져가세요.</p></details>
+      <details><summary>꼭 구매해야 하나요?</summary><p>아니요. 체험만 하고 가셔도 됩니다. 궁금한 게 있을 때만 물어보세요.</p></details>
+      <details><summary>오일을 처음 써봐도 괜찮나요?</summary><p>네. 처음이신 분 기준으로 진행해요. 임신 중이거나 피부가 예민하면 신청할 때 알려주세요. 맞춰서 준비할게요.</p></details>
+      <details><summary>지인과 같이 가도 되나요?</summary><p>2인까지 함께 체험할 수 있어요. 신청 메시지에 인원을 적어주세요.</p></details>
+      <details><summary>1:1 체험과 금요일 클래스는 뭐가 달라요?</summary><p>1:1 체험은 내 고민에 맞춰 오일을 고르고 롤온을 만들어요. 금요일 클래스는 여러 분이 함께 오일 하나를 배우는 시간이에요.</p></details>
+    </div>
+  </section>
+
+  <footer>
+    <span class="logo"><img src="img/triple.png" alt="Triple Group" width="198" height="240"></span>
+    <span>이랑코치 · @erang_coach<br>Team ERANG · 도테라트리플센터</span>
+  </footer>
+</div>
+
+<div class="sticky" id="sticky">
+  <a href="#apply" class="btn btn-amber">40분 체험 신청하기</a>
+</div>
+
+<script>
+(function(){
+  const $ = (id) => document.getElementById(id);
+  const form = $('f'), err = $('err'), result = $('result'), msg = $('msg');
+
+  function fmtPhone(d){
+    d = d.slice(0, 11);
+    if(d.length < 4) return d;
+    if(d.length < 8) return d.slice(0,3) + '-' + d.slice(3);
+    if(d.length === 10) return d.slice(0,3) + '-' + d.slice(3,6) + '-' + d.slice(6);
+    return d.slice(0,3) + '-' + d.slice(3,7) + '-' + d.slice(7);
+  }
+  $('phone').addEventListener('input', function(){
+    this.value = fmtPhone(this.value.replace(/\D/g, ''));
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = $('name').value.trim();
+    const concern = (document.querySelector('input[name=concern]:checked')||{}).value || '';
+    const days = Array.from(document.querySelectorAll('#days input:checked')).map(i => i.value);
+
+    const phoneDigits = $('phone').value.replace(/\D/g, '');
+    const problems = [];
+    if(!name) problems.push('이름 또는 닉네임을 적어주세요.');
+    if(!/^01\d{8,9}$/.test(phoneDigits)) problems.push('휴대폰 번호를 확인해 주세요. (예: 010-1234-5678)');
+    if(days.length === 0) problems.push('희망 일정을 하나 이상 골라주세요.');
+    if(problems.length){ err.textContent = problems.join(' '); err.hidden = false; return; }
+    err.hidden = true;
+
+    msg.value = [
+      '안녕하세요! 인스타 보고 40분 아로마 체험 신청합니다 🌿',
+      '',
+      '이름: ' + name,
+      '연락처: ' + fmtPhone(phoneDigits),
+      '고민: ' + concern,
+      '희망 일정: ' + days.join(', '),
+      '인원: 1명'
+    ].join('\n');
+    result.hidden = false;
+    result.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+  });
+
+  function copyText(text, onDone, fallbackEl){
+    const fb = () => { if(fallbackEl){ fallbackEl.focus(); fallbackEl.select(); } };
+    try{ navigator.clipboard.writeText(text).then(onDone, fb); }catch(_){ fb(); }
+  }
+  $('copy').addEventListener('click', function(){
+    const btn = this;
+    copyText(msg.value, () => { btn.textContent = '복사됨 ✓ 카톡에 붙여넣어 주세요'; }, msg);
+  });
+  $('copyAddr').addEventListener('click', function(){
+    const btn = this;
+    copyText('서울시 강남구 수서동 713번지 수서현대벤처빌 722호 도테라트리플센터', () => { btn.textContent = '복사됨'; }, null);
+  });
+
+  const sticky = $('sticky');
+  if('IntersectionObserver' in window){
+    const seen = new Map();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => seen.set(en.target, en.isIntersecting));
+      sticky.hidden = Array.from(seen.values()).some(Boolean);
+    }, {threshold: 0.1});
+    io.observe($('apply'));
+    io.observe(document.querySelector('.hero .btn'));
+  }
+})();
+</script>
+</body>
+</html>
