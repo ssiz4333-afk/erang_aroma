@@ -14,6 +14,7 @@
 <style>
 html{color-scheme:light}
 body{margin:0}
+[hidden]{display:none!important}
 
 /* Layout: 모바일 퍼스트 단일 컬럼(인스타 인앱 브라우저). 고민 헤드라인 → 센터 사진 → 추천 대상 → 40분 타임라인 → 클래스 → 코치 → 약속 → 신청 → 오시는 길 → FAQ. 하단 고정 CTA */
 :root{
@@ -386,6 +387,12 @@ footer .logo img{height:56px;width:auto}
 
 <script>
 (function(){
+  // 링크로 들어오면 항상 맨 위에서 시작 (이전 스크롤 위치 복원 방지)
+  try{ if('scrollRestoration' in history) history.scrollRestoration = 'manual'; }catch(_){}
+  if(!location.hash){
+    window.scrollTo(0, 0);
+    window.addEventListener('load', function(){ window.scrollTo(0, 0); });
+  }
   const $ = (id) => document.getElementById(id);
   const form = $('f'), err = $('err'), result = $('result'), msg = $('msg');
 
